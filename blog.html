@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>OneSource Construction</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+       <!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+<!-- Icon Font Stylesheet -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link href="{{ url_for('static', filename='lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+
+<!-- Customized Bootstrap Stylesheet -->
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Topbar Start -->
+        <div class="container-fluid topbar d-none d-xl-block w-100">
+            <div class="row gx-0 align-items-center" style="height: 45px;">
+                <div class="col-lg-6 text-center text-lg-start mb-lg-0">
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="text-muted me-4"><i class="fas fa-map-marker-alt text-secondary me-2"></i>Find A Location</a>
+                        <a href="#" class="text-muted me-4"><i class="fas fa-phone-alt text-secondary me-2"></i> +92 345 678902</a>
+                        <a href="#" class="text-muted me-0"><i class="fas fa-envelope text-secondary me-2"></i>Example@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end">
+                    <div class="d-flex align-items-center justify-content-end">
+                       
+                        <a href="#" class="btn btn-primary btn-square border border-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-primary btn-square border border-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-primary btn-square border border-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-primary btn-square border border-white me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-fluid sticky-top px-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-light py-3 px-4">
+                <a href="index.html" class="navbar-brand p-0">
+                    <h1 class="text-secondary display-6"><i class="fas fa-city text-primary me-3"></i>OneSource Construction</h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto pt-2 pt-lg-0">
+                         <a href="{{ url_for('home') }}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('about') }}" class="nav-item nav-link {% if request.path == '/about' %}active{% endif %}">About</a>
+        <a href="{{ url_for('services') }}" class="nav-item nav-link {% if request.path == '/services' %}active{% endif %}">Services</a>
+        <a href="{{ url_for('projects') }}" class="nav-item nav-link {% if request.path == '/projects' %}active{% endif %}">Projects</a>
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle text-dark {% if request.path in ['/features', '/blog', '/team', '/testimonial', '/404'] %}active{% endif %}" data-bs-toggle="dropdown">Pages</a>
+            <div class="dropdown-menu m-lg-0">
+                <a href="{{ url_for('features') }}" class="dropdown-item {% if request.path == '/features' %}active{% endif %}">Our Features</a>
+                <a href="{{ url_for('blog') }}" class="dropdown-item {% if request.path == '/blog' %}active{% endif %}">Our Blog</a>
+                <a href="{{ url_for('team') }}" class="dropdown-item {% if request.path == '/team' %}active{% endif %}">Our Team</a>
+                <a href="{{ url_for('testimonial') }}" class="dropdown-item {% if request.path == '/testimonial' %}active{% endif %}">Testimonial</a>
+             
+                            </div>
+                        </div>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <div class="d-flex align-items-center flex-nowrap pt-3  pt-lg-0 ms-lg-2">
+                        <button class="btn btn-primary py-2 px-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                   
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h4 class="modal-title mb-0" id="exampleModalLabel">Search by keyword</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
+
+       <!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our News & Blog</h4>
+        <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+            <li class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+            <li class="breadcrumb-item active text-secondary">News & Blog</li>
+        </ol>    
+    </div>
+</div>
+<!-- Header End -->
+
+
+    
+   <!-- Blog Start -->
+<div class="container-fluid blog pb-5">
+    <div class="container pb-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <p class="text-uppercase text-secondary fs-5 mb-0">News & Blog</p>
+            <h2 class="display-4 text-capitalize mb-3">Insights for Smart Construction</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item h-100">
+                    <div class="blog-img">
+                        <img src="{{ url_for('static', filename='img/blog5.jpeg') }}" class="n" alt="Smart Construction">
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 10 March 2025</p>
+                            <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> OneSource Team</p>
+                        </div>OneSource Team
+
+                        <a href="#" class="h4 d-block mb-4">"How OneSource Simplifies Contractor Selection"</a>
+                        <p>Discover how our platform helps you find reliable contractors based on ratings, experience, and cost comparisons.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="#" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="blog-item h-100">
+                    <div class="blog-img">
+                        <img src="{{ url_for('static', filename='img/blog4.jpg') }}" class="n" alt="Construction Materials">
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 20 March 2025</p>
+                            <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> OneSource Team</p>
+                        </div>
+                        <a href="#" class="h4 d-block mb-4">"Top Quality Construction Materials at Best Prices"</a>
+                        <p>Learn how OneSource connects you to verified suppliers offering premium materials like cement, sand, and steel.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="#" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="blog-item h-100">
+                    <div class="blog-img">
+                        <img src="{{ url_for('static', filename='img/blog6.jpg') }}" class="n" alt="Project Management Tools">
+                    </div>
+                    <div class="blog-content p-4">
+                        <div class="d-flex justify-content-between mb-3">
+                            <p class="mb-0"><i class="fa fa-calendar-check text-secondary me-1"></i> 30 March 2025</p>
+                            <p class="mb-0"><i class="fa fa-user text-secondary me-1"></i> OneSource Team</p>
+                        </div>
+                        <a href="#" class="h4 d-block mb-4">"Manage Your Construction Projects with Ease"</a>
+                        <p>Explore the project management tools on OneSource that help you track budgets, timelines, and materials efficiently.</p>
+                        <a class="btn btn-secondary py-2 px-4" href="#" data-bs-toggle="modal" data-bs-target="#blogModal">Read More</a>
+
+                    </div>
+                </div>
+            </div>
+
+<!-- Blog Post Modal -->
+<div class="modal fade" id="blogModal" tabindex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="blogModalLabel">How OneSource Simplifies Contractor Selection</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Published on:</strong> 10 March 2025</p>
+                <p><strong>By:</strong> OneSource Team</p>
+                <p>Discover how our platform helps you find reliable contractors based on ratings, experience, and cost comparisons. OneSource makes contractor selection more streamlined by allowing you to easily compare different options. Whether you're looking for general contractors, specialized experts, or top-rated professionals, our platform provides detailed profiles to make the selection process easier.</p>
+                <p>Our contractor database is built on the foundation of trust, offering verified reviews and feedback from past projects. You can also filter contractors based on specific criteria such as budget, location, or timeline, ensuring you find the best fit for your project.</p>
+                <p>We also provide tools that allow you to directly communicate with contractors and even track project progress in real-time. Whether you're a homeowner or a commercial developer, OneSource simplifies the process of contractor selection, ensuring that every project runs smoothly from start to finish.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog Post Modal -->
+
+
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+ 
+        <!-- Footer Start -->
+        <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <div class="footer-item">
+                                <h4 class="text-white mb-4">OneSource Construction</h4>
+                                <p class="mb-3">We are dedicated to delivering high-quality construction services with a focus on innovation, reliability, and customer satisfaction. Our team works tirelessly to bring your visions to life, ensuring every project is completed on time and within budget.
+                                    We take pride in our craftsmanship and commitment to excellence in every aspect of our work.</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Explore</h4>
+                           <a href="{{ url_for('home') }}"><i class="fas fa-angle-right me-2"></i> Home</a>
+<a href="{{ url_for('about') }}"><i class="fas fa-angle-right me-2"></i> About Us</a>
+<a href="{{ url_for('services') }}"><i class="fas fa-angle-right me-2"></i> Services</a>
+<a href="{{ url_for('contractor') }}"><i class="fas fa-angle-right me-2"></i> Contractor</a>
+<a href="{{ url_for('testimonial') }}"><i class="fas fa-angle-right me-2"></i> Testimonial</a>
+<a href="{{ url_for('team') }}"><i class="fas fa-angle-right me-2"></i> Our Team</a>
+<a href="{{ url_for('contact') }}"><i class="fas fa-angle-right me-2"></i> Contact Us</a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Our Services</h4>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> General Construction</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Property Maintenance</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Project Managment</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Virtual Design & Build</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Residential Construction</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Preconstruction</a>
+                            <a href="#"><i class="fas fa-angle-right me-2"></i> Design Build</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item d-flex flex-column">
+                            <h4 class="text-white mb-4">Contact Info</h4>
+                            <a href=""><i class="fa fa-map-marker-alt me-2"></i> Location, City, Country</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                            <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
+                            <a href=""><i class="fas fa-phone me-2"></i> +92 345 678902</a>
+                            <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +92 345 678902</a>
+                            <div class="footer-btn d-flex align-items-center">
+                                <a class="btn btn-secondary btn-md-square me-2" href="#"><i class="fab fa-facebook-f text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square me-2" href="#"><i class="fab fa-twitter text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square me-2" href="#"><i class="fab fa-instagram text-white"></i></a>
+                                <a class="btn btn-secondary btn-md-square me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        
+    
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-secondary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+ 
+  
+    
+    <!-- jQuery and Bootstrap Bundle -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Local Libraries -->
+<script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js') }}"></script>
+
+<!-- Custom JS -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </body>
+
+</html>

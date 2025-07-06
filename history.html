@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estimate History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Previous Estimates</h1>
+    <table>
+        <tr>
+            <th>Plot Size</th>
+            <th>Floors</th>
+            <th>Bricks</th>
+            <th>Cement</th>
+            <th>Steel</th>
+            <th>Sand</th>
+            <th>Brick Cost</th>
+            <th>Cement Cost</th>
+            <th>Steel Cost</th>
+            <th>Sand Cost</th>
+            <th>Total</th>
+        </tr>
+        {% for e in estimates %}
+        <tr>
+            <td>{{ e[1] }}</td>
+            <td>{{ e[2] }}</td>
+            <td>{{ e[3] }}</td>
+            <td>{{ e[4] }}</td>
+            <td>{{ e[5] }}</td>
+            <td>{{ e[6] }}</td>
+            <td>{{ e[7] }}</td>
+            <td>{{ e[8] }}</td>
+            <td>{{ e[9] }}</td>
+            <td>{{ e[10] }}</td>
+            <td>{{ e[11] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Back to Calculator</a>
+</body>
+</html>
